@@ -17,11 +17,11 @@ const renderErrorMessage = (name) =>
                     <div class=" px-4 py-5 rounded">
                         <div class="">
                             <h4 class="my-4">Change Password</h4>
-                            <div class="col-md-4">
+                            <div class="">
                                 <label for="exampleInputPassword2" class="form-label">New password *</label>
                                 <input type="password" class="form-control" id="exampleInputPassword2" />
                             </div>
-                            <div class=" col-md-4">
+                            <div class="">
                                 <label for="exampleInputPassword3" class="form-label">Confirm Password *</label>
                                 <input type="password" class="form-control" id="exampleInputPassword3" />
                             </div>

@@ -11,7 +11,7 @@ const NewCard = ({ item }) => {
             }}
             type="inner"
             title={item.name}
-            extra={<p onClick={onClick}>{isVisible ? 'Less' : 'More'}</p>}
+            extra={<p className='pLink' onClick={onClick}>{isVisible ? 'Less' : 'More'}</p>}
         >
             {
                 isVisible

@@ -1,16 +1,15 @@
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import React, { useState } from 'react';
-import FormExample from './AssignValidation';
 
-function MyVerticallyCenteredModal(props) {
+function AddActivity(props) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   return (
     <>
-      <Button className='addAssignBtn' variant="secondary" onClick={() => handleShow()}>Добавить </Button>{' '}
+      <Button className='addActivityBtn'  onClick={() => handleShow()}> <i class="bi bi-cloud-plus Addicon"></i></Button>{' '}
       <Modal
         {...props}
         size="lg"
@@ -30,9 +29,8 @@ function MyVerticallyCenteredModal(props) {
         <Modal.Footer>
           <Button onClick={props.onHide} variant='secondary   '>Close</Button>
         </Modal.Footer>
-        <FormExample/>
       </Modal>
     </>
   );
 }
-export default MyVerticallyCenteredModal;
+export default AddActivity;

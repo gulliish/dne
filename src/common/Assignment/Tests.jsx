@@ -1,11 +1,11 @@
 import React from 'react';
 import AppLayout from '../layout/Layout';
-import AddAssign from './components/AddAssign';
+// import AddAssign from './components/AddAssign';
 import CardAssign from './components/CardAssign';
 // import { authenticationService } from '@/_services';
 // import {  Redirect } from 'react-router-dom';
 
-function Assignment() {
+function Tests() {
 //   const currentUser = authenticationService.currentUserValue;
 
 //   if (!currentUser) {
@@ -22,11 +22,11 @@ function Assignment() {
     <AppLayout>
     <div className="">
         
-      <AddAssign/>
+      
       <CardAssign/>
     </div>
     </AppLayout>
   )
 }
 
-export default Assignment;
+export default Tests;

@@ -13,6 +13,9 @@ function News() {
     console.log(state);
     useEffect(() => {
         dispatch(getNewsThunk())
+    }, []);
+    useEffect(() => {
+        dispatch(postNewsThunk())
     }, [])
 
 const news = useSelector(state => state.newsSlice.news)

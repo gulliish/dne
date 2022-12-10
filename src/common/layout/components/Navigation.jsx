@@ -54,6 +54,7 @@ const SideBar = () => {
         </SidebarHeader>
         <Menu className="NavMenu" iconShape="square">
           <Menuitem icon={<FaColumns />}> <a href="/">Главная</a></Menuitem>
+          <Menuitem icon={<FaCog />}><a href="/notifications">Доска объявлений</a></Menuitem>
           <Menuitem icon={<FaUserTie />}>
             <a href="/groups">Контроль студентов</a>
           </Menuitem>
@@ -61,7 +62,6 @@ const SideBar = () => {
             <Menuitem><a href="/tests">Тесты</a></Menuitem>
             <MenuItem><a href="/assignment">Задания</a></MenuItem>
           </SubMenu>
-          <Menuitem icon={<FaCog />}><a href="/notifications">Доска объявлений</a></Menuitem>
         </Menu>
         <div className="Nav" style={styles.menuIcon} onClick={onClickMenuIcon}>
           

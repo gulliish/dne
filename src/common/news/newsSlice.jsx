@@ -21,6 +21,14 @@ export const postNewsThunk = createAsyncThunk(
     }
 )
 
+export const deleteNewsThunk = createAsyncThunk(
+    'news/deleteNewsThunk',
+    async ({id}, {dispatch}) => {
+        await axios.delete('http://127.0.0.1:8000/api/v1/news/', {id})
+        dispatch(deleteNewsThunk())
+    }
+)
+
 const newsSlice = createSlice({
     name: "news",
     initialState,

@@ -1,165 +1,45 @@
-import React, { useState } from "react";
-import { Auth } from "aws-amplify";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import {
-  FormText,
   FormGroup,
   FormControl,
   FormLabel,
 } from "react-bootstrap";
-import { BsCheck } from "react-icons/bs";
 import LoaderButton from "./LoaderButton";
-import { useFormFields } from "./hooksLib";
-import { onError } from "./errorLib";
+import { useDispatch, useSelector } from "react-redux";
+import { postAuthThunk } from "../LoginSlice";
+
 
 export default function ForgetPassword() {
-  const [fields, handleFieldChange] = useFormFields({
-    code: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-  });
-  const [codeSent, setCodeSent] = useState(false);
-  const [confirmed, setConfirmed] = useState(false);
-  const [isConfirming, setIsConfirming] = useState(false);
-  const [isSendingCode, setIsSendingCode] = useState(false);
 
-  function validateCodeForm() {
-    return fields.email.length > 0;
-  }
+  const dispatch = useDispatch();
 
-  function validateResetForm() {
+  const [value, setValue] = useState({
+    email:'',
+  })
     return (
-      fields.code.length > 0 &&
-      fields.password.length > 0 &&
-      fields.password === fields.confirmPassword
-    );
-  }
-
-  async function handleSendCodeClick(event) {
-    event.preventDefault();
-
-    setIsSendingCode(true);
-
-    try {
-      await Auth.forgotPassword(fields.email);
-      setCodeSent(true);
-    } catch (error) {
-      onError(error);
-      setIsSendingCode(false);
-    }
-  }
-
-  async function handleConfirmClick(event) {
-    event.preventDefault();
-
-    setIsConfirming(true);
-
-    try {
-      await Auth.forgotPasswordSubmit(
-        fields.email,
-        fields.code,
-        fields.password
-      );
-      setConfirmed(true);
-    } catch (error) {
-      onError(error);
-      setIsConfirming(false);
-    }
-  }
-
-  function renderRequestCodeForm() {
-    return (
-      <form onSubmit={handleSendCodeClick}>
-        <FormGroup bsSize="large" controlId="email">
+      <form >
+        <FormGroup bsSize="medium" controlId="email" className="forgetForm">
           <FormLabel>Email</FormLabel>
           <FormControl
             autoFocus
             type="email"
-            value={fields.email}
-            onChange={handleFieldChange}
+            onChange={(e) => setValue({...value, email: e.target.value})}
           />
-        </FormGroup>
-        <a className="atext" href="/login"><i class="bi bi-arrow-bar-left"></i> Back</a>
+          <a className="atext" href="/login"><i class="bi bi-arrow-bar-left"></i> Back</a>
         <LoaderButton
         className="btn addAssignBtn btn-secondary"
           block
           type="submit"
           bsSize="large"
-          isLoading={isSendingCode}
-          disabled={!validateCodeForm()}
+          onClick={() =>{
+            dispatch(postAuthThunk(value));
+            console.log(value);
+          }}
         >
           Send Confirmation
         </LoaderButton>
+        </FormGroup>
+        
       </form>
     );
   }
-
-  function renderConfirmationForm() {
-    return (
-      <form onSubmit={handleConfirmClick}>
-        <FormGroup bsSize="large" controlId="code">
-          <FormLabel>Confirmation Code</FormLabel>
-          <FormControl
-            autoFocus
-            type="tel"
-            value={fields.code}
-            onChange={handleFieldChange}
-          />
-          <FormText>
-            Please check your email ({fields.email}) for the confirmation code.
-          </FormText>
-        </FormGroup>
-        <hr />
-        <FormGroup bsSize="large" controlId="password">
-          <FormLabel>New Password</FormLabel>
-          <FormControl
-            type="password"
-            value={fields.password}
-            onChange={handleFieldChange}
-          />
-        </FormGroup>
-        <FormGroup bsSize="large" controlId="confirmPassword">
-          <FormLabel>Confirm Password</FormLabel>
-          <FormControl
-            type="password"
-            value={fields.confirmPassword}
-            onChange={handleFieldChange}
-          />
-        </FormGroup>
-        <LoaderButton
-          block
-          type="submit"
-          bsSize="large"
-          isLoading={isConfirming}
-          disabled={!validateResetForm()}
-        >
-          Confirm
-        </LoaderButton>
-      </form>
-    );
-  }
-
-  function renderSuccessMessage() {
-    return (
-      <div className="success">
-        <p><BsCheck size={16} /> Your password has been reset.</p>
-        <p>
-          <Link to="/login">
-            Click here to login with your new credentials.
-          </Link>
-        </p>
-      </div>
-    );
-  }
-
-  return (
-    <div className="ResetPassword">
-      {!codeSent
-        ? renderRequestCodeForm()
-        : !confirmed
-        ? renderConfirmationForm()
-        : renderSuccessMessage()}
-    </div>
-  );
-}

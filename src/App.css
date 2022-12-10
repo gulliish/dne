@@ -352,14 +352,65 @@ a:hover{
   padding-left: 40vw;
 }
 .icon{
-  font-size: larger;
+  font-size: 18px;
   color: #9b9ca1;
   display: inline;
+  transition-duration: 0.1s;
 }
+.icon:hover{
+  font-size: 23px;
+  color:cadetblue;
+}
+
 .Link{
   color: black ;
   text-decoration: none;
 }
 .Link:hover{
   color: #29292e;
+}
+.pLink{
+  cursor: pointer;
+  font-weight:600;
+  color:#001529;
+}
+.pLink:hover{
+  color:#3e5873;
+}
+.pLink:active{
+  color:#001529;
+}
+.forgetForm{
+  width: 500px;
+  margin: 0 auto;
+  padding-top: 200px;
+}
+.newsAdd{
+  display:flex;
+  width: 100%;
+  gap:20px;
+  flex-direction: column;
+}
+.cardsWrapper{
+  display:flex;
+  flex-wrap:wrap;
+  gap:30px;
+}
+.addActivityBtn{
+    border-radius:50% !important;
+    width: 50px;
+    height: 50px;
+    background-color: white !important;
+    text-align: center;
+    padding: 0 !important;
+    float: right;
+}
+.Addicon{
+  font-size: 30px;
+  text-align: center;
+  color: #00557c;
+}
+.GroupHeader{
+  display: flex;
+  justify-content: space-between;
 }

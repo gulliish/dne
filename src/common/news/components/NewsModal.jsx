@@ -3,12 +3,13 @@ import Modal from 'react-bootstrap/Modal';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { postNewsThunk } from '../newsSlice';
+import TextArea from 'antd/lib/input/TextArea';
 
 function NewsModal(props) {
   const dispatch = useDispatch();
   const [show, setShow] = useState(false);
   const [value, setValue] = useState({
-    name:'',
+    name: '',
     news_text: '',
   })
   const handleClose = () => setShow(false);
@@ -21,25 +22,27 @@ function NewsModal(props) {
         size="lg"
         aria-labelledby="contained-modal-title-vcenter"
         centered
-        show={show} 
+        show={show}
         onHide={handleClose}
       >
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-vcenter">
-            Add 
+            Add
           </Modal.Title>
         </Modal.Header>
-        <Modal.Body>
-          <input type='text' onChange={(e) => setValue({...value, name: e.target.value})} placeholder='Enter name of news'/>
-          <input type='text' onChange={(e) => setValue({...value, news_text: e.target.value})} placeholder='Enter text'/>
-          <button onClick={(e) =>{
-            e.preventDefault();
-            dispatch(postNewsThunk(value))
-            console.log(test);
-          }} >click</button>
+        <Modal.Body className='newsAdd'>
+          <input type='text' onChange={(e) => setValue({ ...value, name: e.target.value })} placeholder='Enter name of news' />
+          <div className='newsAdd'>
+            <TextArea type='text' onChange={(e) => setValue({ ...value, news_text: e.target.value })} placeholder='Enter text' />
+          </div>
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={props.onHide} variant='secondary   '>Close</Button>
+          <Button onClick={() => {
+            handleClose();
+            dispatch(postNewsThunk(value));
+            console.log(test)
+          }}
+            variant='secondary'>Add</Button>
         </Modal.Footer>
       </Modal>
     </>

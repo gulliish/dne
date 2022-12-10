@@ -13,34 +13,31 @@ import ResetPassword from "./common/auth/components/ResetPassword";
 import Activity from "./common/Activity/Activity";
 import Groups from "./common/Users/Groups";
 import ForgetPassword from "./common/auth/components/ForgetPassword";
+import Tests from "./common/Assignment/Tests";
+// import { Redirect } from 
 
 const ContentRouter = createBrowserRouter([
   {
-    errorElement: <ErrorPage /> 
+    errorElement: <ErrorPage />
   },
   {
     path: "/",
-    element: <News />, 
+    // element: <News /> 
+    element: localStorage.getItem("token") ? <News /> : < Login />,
   },
   {
     path: "/forget",
-    element: <ForgetPassword />, 
+    element: <ForgetPassword />,
   },
   {
     path: "/tests",
-    element: <News />, 
+    element: <Tests/>,
   },
-  
+
   {
     path: "/notifications",
-    element: <News />, 
-  },
-  {
-    path: "/activity",
     element: <Activity />
-    
   },
-  
   {
     path: "/groups",
     element: <Groups />
@@ -55,7 +52,7 @@ const ContentRouter = createBrowserRouter([
   },
   {
     path: "/login",
-    element: <Login />,
+    element: localStorage.getItem("token") ? <News /> : < Login />,
   },
   {
     path: "/reset",

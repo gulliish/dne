@@ -1,32 +1,22 @@
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { postGruopThunk } from '../GroupSlice';
 // import FormExample from './AssignValidation';
 
-function Add(props) {
+function AddGroups(props) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const [count, setCount] = useState(2);
+  const dispatch = useDispatch();
   const [value, setValue] = useState({
-    key: '',
     name: '',
-    lastname: '',
-    email: ''
+    students: '',
   })
 
-  const handleAdd = () => {
-    const newData = {
-      key: count,
-      name: ` ${count}`,
-      age: '',
-      address: ` ${count}`,
-    };
-    setValue([...value, newData]);
-    setCount(count + 1);
-  };
   return (
     <>
       <Button className='addAssignBtn' variant="secondary" onClick={() => handleShow()}>Добавить </Button>{' '}
@@ -48,18 +38,14 @@ function Add(props) {
                       <div class="row g-3">
                         <div class="bg-secondary-soft px-4 py-5 rounded">
                           <div class="row g-3 bg-secondary-soft " >
-                            <h4 class="mb-4 mt-0">Add Student</h4>
-                            <div class="col-md-6">
-                              <label class="form-label">First Name *</label>
-                              <input type="text" class="form-control" placeholder="Enter name" aria-label="First name" onChange={(e) => setValue({ ...value, name: e.target.value })} />
+                            <h4 class="mb-4 mt-0">Add group</h4>
+                            <div class="col-md-12">
+                              <label class="form-label">Name *</label>
+                              <input type="text" class="form-control" placeholder="Enter name of group" aria-label="First name" onChange={(e) => setValue({ ...value, name: e.target.value })} />
                             </div>
-                            <div class="col-md-6">
-                              <label class="form-label">Last Name *</label>
-                              <input type="text" class="form-control" placeholder="Enter last name" aria-label="Last name"  onChange={(e) => setValue({ ...value, lastname: e.target.value })} />
-                            </div>
-                            <div class="col-md-6">
-                              <label for="inputEmail4" class="form-label">Email *</label>
-                              <input type="email" onChange={(e) => setValue({ ...value, email: e.target.value })} class="form-control" id="inputEmail4" value="" />
+                            <div class="col-md-12 ">
+                              <label class="form-label">Students *</label>
+                              <input type="text" class="form-control" placeholder="Enter last students" aria-label="Last name" onChange={(e) => setValue({ ...value, students: e.target.value })} />
                             </div>
                           </div>
                         </div>
@@ -67,7 +53,11 @@ function Add(props) {
                     </div>
                   </div>
                   <div class="gap-3 d-md-flex justify-content-md-end">
-                    <button type="submit" class="btn addAssignBtn btn-secondary" onClick={{handleAdd}}>Add student</button>
+                    <button type="submit" class="btn addAssignBtn btn-secondary" onClick={() => {
+                      handleClose();
+                      dispatch(postGruopThunk(value));
+                      console.log(test)
+                    }}>Add student</button>
                   </div>
                 </div>
 
@@ -79,4 +69,4 @@ function Add(props) {
     </>
   );
 }
-export default Add
+export default AddGroups;

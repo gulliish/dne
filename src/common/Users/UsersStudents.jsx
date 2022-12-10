@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import {  Form, Input, Popconfirm, Table } from 'antd';
-import Add from './components/Add'
 import AppLayout from '../layout/Layout';
+import Add from './components/Add';
 const EditableContext = React.createContext(null);
 const EditableRow = ({ index, ...props }) => {
   const [form] = Form.useForm();
@@ -94,7 +94,7 @@ const UsersStudents = () => {
       address: 'London, Park Lane no. 1',
     },
   ]);
-  const [count, setCount] = useState(2);
+  // const [count, setCount] = useState(2);
   const handleDelete = (key) => {
     const newData = dataSource.filter((item) => item.key !== key);
     setDataSource(newData);
@@ -120,21 +120,21 @@ const UsersStudents = () => {
       render: (_, record) =>
         dataSource.length >= 1 ? (
           <Popconfirm title="Sure to delete?" onConfirm={() => handleDelete(record.key)}>
-            <a>Delete</a>
+            <a href='#' onClick={(e) =>{e.preventDefault()}}>Delete</a>
           </Popconfirm>
         ) : null,
     }, 
   ];
-  const handleAdd = () => {
-    const newData = {
-      key: count,
-      name: `Edward King ${count}`,
-      age: '32',
-      address: `London, Park Lane no. ${count}`,
-    };
-    setDataSource([...dataSource, newData]);
-    setCount(count + 1);
-  };
+  // const handleAdd = () => {
+  //   const newData = {
+  //     key: count,
+  //     name: `Edward King ${count}`,
+  //     age: '32',
+  //     address: `London, Park Lane no. ${count}`,
+  //   };
+  //   setDataSource([...dataSource, newData]);
+  //   setCount(count + 1);
+  // };
   const handleSave = (row) => {
     const newData = [...dataSource];
     const index = newData.findIndex((item) => row.key === item.key);
@@ -166,23 +166,18 @@ const UsersStudents = () => {
       }),
     };
   });
-  // const dispatch = useDispatch();
-  // useEffect(() =>{
-  //   dispatch(gerUserThunk())
-  // }, [])
   return (
     <AppLayout>
     <div>
 
-      <Add
-        onClick={handleAdd}
-        type="primary"
+      {/* <button onClick={handleAdd}
+        type="btn-outlook"
         style={{
           marginBottom: 16,
-        }}
-      >
-        Add a row
-      </Add>
+        }}>
+        add a row
+      </button> */}
+      <Add/>
       <Table
         components={components}
         rowClassName={() => 'editable-row'}
