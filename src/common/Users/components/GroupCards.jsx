@@ -1,3 +1,4 @@
+import { IconButton } from '@mui/material';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
@@ -11,8 +12,12 @@ function GroupCards({ item }) {
         <Card.Footer className="text-muted">{item.students}
           <Button variant="outline-warning" className=''><a className='Link' href='/students'>Overview</a> </Button>
         </Card.Footer>
-        <i class="bi bi-trash3-fill icon"></i>
-        <i class="bi bi-pencil-square icon"></i>
+        <IconButton aria-label="add to favorites">
+          <i className="bi bi-trash3-fill icon" title="Delete"></i>
+        </IconButton>
+        <IconButton aria-label="add to favorites">
+          <i className="bi bi-pencil-square icon" title="Edit"></i>
+        </IconButton>
       </Card>
     </>
 

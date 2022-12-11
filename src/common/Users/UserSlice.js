@@ -8,7 +8,7 @@ const initialState = {
 export const getStudThunk = createAsyncThunk(
     'students/getStudThunk',
     async (_, { dispatch }) => {
-        const { data } = await axios.get('http://127.0.0.1:8000/api/v1/news/')
+        const { data } = await axios.get('http://127.0.0.1:8000/api/v1/data/students/')
         dispatch(getStud(data))
     }
 )
@@ -16,7 +16,7 @@ export const getStudThunk = createAsyncThunk(
 export const postStudThunk = createAsyncThunk(
     'students/postStudThunk',
     async (obj, { dispatch }) => {
-        await axios.post('http://127.0.0.1:8000/api/v1/news/', obj)
+        await axios.post('http://127.0.0.1:8000/api/v1/data/students/', obj)
         dispatch(getStudThunk())
     }
 )
@@ -24,7 +24,7 @@ export const postStudThunk = createAsyncThunk(
 export const deleteStudThunk = createAsyncThunk(
     'students/deleteStudThunk',
     async ({ id }, { dispatch }) => {
-        await axios.delete('http://127.0.0.1:8000/api/v1/news/', { id })
+        await axios.delete('http://127.0.0.1:8000/api/v1/data/students/', { id })
         dispatch(getStudThunk())
     }
 )

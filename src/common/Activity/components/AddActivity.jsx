@@ -4,18 +4,24 @@ import React, { useState } from 'react';
 
 function AddActivity(props) {
   const [show, setShow] = useState(false);
+  const [value, setValue] = useState({
+    title: '',
+    body_text: '',
+    owner: '',
+    likes: '',
+  })
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   return (
     <>
-      <Button className='addActivityBtn'  onClick={() => handleShow()}> <i class="bi bi-cloud-plus Addicon"></i></Button>{' '}
+      <Button className='addActivityBtn' onClick={() => handleShow()}> <i className="bi bi-cloud-plus Addicon"></i></Button>{' '}
       <Modal
         {...props}
         size="lg"
         aria-labelledby="contained-modal-title-vcenter"
         centered
-        show={show} 
+        show={show}
         onHide={handleClose}
       >
         <Modal.Header closeButton>
@@ -23,8 +29,13 @@ function AddActivity(props) {
             form
           </Modal.Title>
         </Modal.Header>
-        <Modal.Body>
-          <input type='text' />
+        <Modal.Body className='newsAdd'>
+          <label className='required' htmlFor="title">Title <p className='redtext'>*</p></label>
+          <input id='title' type='text' onChange={(e) => setValue({ ...value, name: e.target.value })} placeholder='Enter name of news' />
+          <div className='newsAdd'>
+            <label className='required' htmlFor="text">Text <p className='redtext'>*</p></label>
+            <textarea id='text' type='text' onChange={(e) => setValue({ ...value, news_text: e.target.value })} placeholder='Enter text' />
+          </div>
         </Modal.Body>
         <Modal.Footer>
           <Button onClick={props.onHide} variant='secondary   '>Close</Button>

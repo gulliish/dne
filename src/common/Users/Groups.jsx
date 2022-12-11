@@ -21,32 +21,32 @@ const Groups = () => {
         dispatch(postNewsThunk())
     }, [])
 
-const groups = useSelector(state => state.groupsSlice.groups)
+    const groups = useSelector(state => state.groupsSlice.groups)
 
 
 
     return (
         <AppLayout>
             <div>
-            <div className='GroupHeader'>
-            <h2>Groups
-            </h2>
-            <div >
-                <ProgressGroup/>
-            </div>
-            </div>
-            <AddGroups/>
+                <div className='GroupHeader'>
+                    <h2>Groups
+                    </h2>
+                    <div >
+                        <ProgressGroup />
+                    </div>
+                </div>
+                <AddGroups />
 
-            <div className='groupsWrapper'>
-            {
-                groups.map(item => (
-                    <GroupCards item={item}/>
-                ))
-            }
-            </div>
+                <div className='groupsWrapper'>
+                    {
+                        groups.map(item => (
+                            <GroupCards item={item} />
+                        ))
+                    }
+                </div>
             </div>
         </AppLayout>
-        
+
     );
 };
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import AppLayout from '../layout/Layout';
-// import AddAssign from './components/AddAssign';
-import CardAssign from './components/CardAssign';
+import TestsCard from './components/TestsCard';
 // import { authenticationService } from '@/_services';
 // import {  Redirect } from 'react-router-dom';
 
@@ -23,7 +22,7 @@ function Tests() {
     <div className="">
         
       
-      <CardAssign/>
+    <TestsCard/>
     </div>
     </AppLayout>
   )

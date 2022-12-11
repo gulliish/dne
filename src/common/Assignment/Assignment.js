@@ -1,6 +1,6 @@
 import React from 'react';
 import AppLayout from '../layout/Layout';
-import AddAssign from './components/AddAssign';
+import AddAssign from './components/AssignModal';
 import CardAssign from './components/CardAssign';
 // import { authenticationService } from '@/_services';
 // import {  Redirect } from 'react-router-dom';

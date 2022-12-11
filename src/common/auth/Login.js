@@ -3,6 +3,7 @@ import { Navigate } from "react-router-dom";
 import { useDispatch } from 'react-redux'
 import { signUpUser } from "./AuthSlice";
 import { useNavigate } from 'react-router-dom'
+import { IconButton } from "@mui/material";
 
 
 
@@ -39,7 +40,7 @@ function Login() {
   const handleSubmit = (event) => {
     event.preventDefault();
     setLogin(!login)
-     let ok = localStorage.getItem("token")
+    let ok = localStorage.getItem("token")
     if (ok) {
       console.log(ok)
       return navigate("/")
@@ -82,9 +83,12 @@ function Login() {
           <input value={userLogin.password} onChange={(e) => { setUserLogin({ ...userLogin, password: e.target.value }) }} type="password" name="pass" required />
           {/* {renderErrorMessage("pass")} */}
         </div>
-        <a href='/forget' className="atext" ><i class="bi bi-question-circle"></i>
-          Forget password?
-        </a>
+        <IconButton aria-label="">
+          <a href='/forget' className="atext" ><i className="bi bi-question-circle"></i>
+            Forget password?
+          </a>
+        </IconButton>
+
         <div className="button-container">
           <input type="submit" onClick={loginFun} />
         </div>

@@ -29,7 +29,6 @@ const Header = () => {
             show={modalShow}
             onHide={() => setModalShow(false)} />
           <Nav>
-            {/* <Nav.Link href="#" ><i onClick={() => setModalShow(true)} className="bi bi-person-fill" title={'My profile'} style={{ fontSize: "2rem" }}></i></Nav.Link> */}
             <Nav.Link eventKey={2} href="login" title={'Exit'} >
               <i className="bi bi-box-arrow-right" style={{ fontSize: "2rem" }} onClick={deleteToken}></i>
             </Nav.Link>

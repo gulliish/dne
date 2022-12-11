@@ -1,3 +1,4 @@
+import { IconButton } from '@mui/material';
 import { Card } from 'antd';
 import React, { useState } from 'react';
 
@@ -11,7 +12,7 @@ const NewCard = ({ item }) => {
             }}
             type="inner"
             title={item.name}
-            extra={<p className='pLink' onClick={onClick}>{isVisible ? 'Less' : 'More'}</p>}
+            extra={<IconButton className='font15'><p className='pLink' onClick={onClick}>{isVisible ? 'Less' : 'More'}</p></IconButton>}
         >
             {
                 isVisible
@@ -19,13 +20,16 @@ const NewCard = ({ item }) => {
                     <div>
                         {item.news_text}
                         <p className="ptext">{item.date_posted}</p>
-                        <i class="bi bi-trash3-fill icon"></i>
-                        <i class="bi bi-pencil-square icon"></i>
-                    </div>
+                        <IconButton aria-label="add to favorites">
+                            <i className="bi bi-trash3-fill icon" title="Delete"></i>
+                        </IconButton>
+                        <IconButton aria-label="add to favorites">
+                            <i className="bi bi-pencil-square icon" title="Edit"></i>
+                        </IconButton> </div>
                     :
                     null
             }
-            
+
         </Card>
     );
 };

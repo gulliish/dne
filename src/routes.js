@@ -16,6 +16,7 @@ import ForgetPassword from "./common/auth/components/ForgetPassword";
 import Tests from "./common/Assignment/Tests";
 import Schedule from "./common/SChedule/Schedule";
 import Courses from "./common/courses/Courses";
+import TestList from "./common/Assignment/components/TestList";
 // import { Redirect } from 
 
 const ContentRouter = createBrowserRouter([
@@ -68,6 +69,10 @@ const ContentRouter = createBrowserRouter([
   {
     path: "/courses",
     element: <Courses/>
+  },
+  {
+    path: "/test",
+    element: <TestList/>
   },
 ]
 );

@@ -33,10 +33,13 @@ export default function Cards({ item }) {
         </CardContent>
         <CardActions disableSpacing>
           <IconButton aria-label="add to favorites">
-            <FavoriteIcon />
-            {item.likes}
-            <i class="bi bi-trash3-fill icon"></i>
-            <i class="bi bi-pencil-square icon"></i>
+            <FavoriteIcon title="like" />
+          </IconButton> {item.likes}
+          <IconButton aria-label="add to favorites">
+            <i className="bi bi-trash3-fill icon" title="Delete"></i>
+          </IconButton>
+          <IconButton aria-label="add to favorites">
+            <i className="bi bi-pencil-square icon" title="Edit"></i>
           </IconButton>
         </CardActions>
         <div>

@@ -1,9 +1,8 @@
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import React, { useState } from 'react';
-import FormExample from './AssignValidation';
 
-function MyVerticallyCenteredModal(props) {
+function AddAssign(props) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -30,9 +29,8 @@ function MyVerticallyCenteredModal(props) {
         <Modal.Footer>
           <Button onClick={props.onHide} variant='secondary   '>Close</Button>
         </Modal.Footer>
-        <FormExample/>
       </Modal>
     </>
   );
 }
-export default MyVerticallyCenteredModal;
+export default AddAssign;

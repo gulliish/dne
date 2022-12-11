@@ -5,39 +5,39 @@ const initialState = {
     tests: []
 }
 
-export const getNewsThunk = createAsyncThunk(
-    'news/getNewsThunk',
-    async (_, {dispatch}) => {
-        const {data} = await axios.get('http://127.0.0.1:8000/api/v1/news/')
-        dispatch(getNews(data))
+export const getTestThunk = createAsyncThunk(
+    'tests/getTestThunk',
+    async (id, {dispatch}) => {
+        const {data} = await axios.get('http://127.0.0.1:8000/api/v1/classroom/assignments/', id)
+        dispatch(getTests(data))
     }
 )
 
-export const postNewsThunk = createAsyncThunk(
-    'news/postNewsThunk',
+export const postTestThunk = createAsyncThunk(
+    'tests/postTestThunk',
     async (obj, {dispatch}) => {
-        await axios.post('http://127.0.0.1:8000/api/v1/news/', obj)
-        dispatch(getNewsThunk())
+        await axios.post('http://127.0.0.1:8000/api/v1/classroom/assignments/', obj)
+        dispatch(getTestThunk())
     }
 )
 
-export const deleteNewsThunk = createAsyncThunk(
-    'news/deleteNewsThunk',
-    async ({id}, {dispatch}) => {
-        await axios.delete('http://127.0.0.1:8000/api/v1/news/', {id})
-        dispatch(deleteNewsThunk())
+export const deleteTestThunk = createAsyncThunk(
+    'tests/deleteTestThunk',
+    async (id, {dispatch}) => {
+        await axios.delete('http://127.0.0.1:8000/api/v1/classroom/assignments/', id)
+        dispatch(getTestThunk())
     }
 )
 
-const newsSlice = createSlice({
-    name: "news",
+const testSlice = createSlice({
+    name: "tests",
     initialState,
     reducers:{
-        getNews:(state, action) => {
-            state.news = action.payload;
+        getTests:(state, action) => {
+            state.tests = action.payload;
         }, 
     }
 })
 
-export const {getNews} = newsSlice.actions;
-export default newsSlice.reducer;
+export const {getTests} = testSlice.actions;
+export default testSlice.reducer;
