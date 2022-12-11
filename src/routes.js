@@ -14,6 +14,8 @@ import Activity from "./common/Activity/Activity";
 import Groups from "./common/Users/Groups";
 import ForgetPassword from "./common/auth/components/ForgetPassword";
 import Tests from "./common/Assignment/Tests";
+import Schedule from "./common/SChedule/Schedule";
+import Courses from "./common/courses/Courses";
 // import { Redirect } from 
 
 const ContentRouter = createBrowserRouter([
@@ -57,6 +59,15 @@ const ContentRouter = createBrowserRouter([
   {
     path: "/reset",
     element: <ResetPassword />
+  },
+  
+  {
+    path: "/schedule",
+    element: <Schedule />
+  },
+  {
+    path: "/courses",
+    element: <Courses/>
   },
 ]
 );

@@ -57,7 +57,7 @@ function AddGroups(props) {
                       handleClose();
                       dispatch(postGruopThunk(value));
                       console.log(test)
-                    }}>Add student</button>
+                    }}>Add Gruop</button>
                   </div>
                 </div>
 

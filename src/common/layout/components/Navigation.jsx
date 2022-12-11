@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
-import { FaCog, FaUserTie, FaColumns, FaThList } from "react-icons/fa";
+import { AiFillCaretLeft, AiFillCaretRight, AiFillHome, AiFillSchedule } from "react-icons/ai";
+import {  FaUserTie, FaColumns, FaThList, FaBookOpen } from "react-icons/fa";
 import {
   Menu,
   MenuItem,
@@ -49,12 +49,12 @@ const SideBar = () => {
               :
               <img style={styles.notChanged} src="/assets/img/logo-white.png" alt="there may be a logo" className="imgLogo" />
 
-              
+
           }
         </SidebarHeader>
         <Menu className="NavMenu" iconShape="square">
-          <Menuitem icon={<FaColumns />}> <a href="/">Главная</a></Menuitem>
-          <Menuitem icon={<FaCog />}><a href="/notifications">Доска объявлений</a></Menuitem>
+          <Menuitem icon={<AiFillHome />}> <a href="/">Главная</a></Menuitem>
+          <Menuitem icon={<FaColumns />}><a href="/notifications">Доска объявлений</a></Menuitem>
           <Menuitem icon={<FaUserTie />}>
             <a href="/groups">Контроль студентов</a>
           </Menuitem>
@@ -62,17 +62,17 @@ const SideBar = () => {
             <Menuitem><a href="/tests">Тесты</a></Menuitem>
             <MenuItem><a href="/assignment">Задания</a></MenuItem>
           </SubMenu>
+          <Menuitem icon={<FaBookOpen />}><a href="/courses">Курсы</a></Menuitem>
+          <Menuitem icon={<AiFillSchedule />}><a href="/schedule">Расписание</a></Menuitem>
         </Menu>
         <div className="Nav" style={styles.menuIcon} onClick={onClickMenuIcon}>
-          
+
           {
             collapsed
               ?
-<AiFillCaretRight />
-
+              <AiFillCaretRight />
               :
-<AiFillCaretLeft />
-              
+              <AiFillCaretLeft />
           }
         </div>
       </ProSidebar>

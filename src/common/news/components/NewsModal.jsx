@@ -31,9 +31,11 @@ function NewsModal(props) {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body className='newsAdd'>
-          <input type='text' onChange={(e) => setValue({ ...value, name: e.target.value })} placeholder='Enter name of news' />
+          <label className='required' htmlFor="title">Title <p className='redtext'>*</p></label>
+          <input id='title' type='text' onChange={(e) => setValue({ ...value, name: e.target.value })} placeholder='Enter name of news' />
           <div className='newsAdd'>
-            <TextArea type='text' onChange={(e) => setValue({ ...value, news_text: e.target.value })} placeholder='Enter text' />
+            <label className='required' htmlFor="text">Text <p className='redtext'>*</p></label>
+            <TextArea id='text' type='text' onChange={(e) => setValue({ ...value, news_text: e.target.value })} placeholder='Enter text' />
           </div>
         </Modal.Body>
         <Modal.Footer>
