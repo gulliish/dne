@@ -3,7 +3,11 @@ import { Form, Input, Popconfirm, Table } from 'antd';
 import AppLayout from '../layout/Layout';
 import { useDispatch, useSelector } from "react-redux";
 import { getStudThunk, postStudThunk } from './UserSlice';
-import { Button } from 'bootstrap';
+import Breadcrumbs from '@mui/material/Breadcrumbs';
+import Link from '@mui/material/Link';
+import HomeIcon from '@mui/icons-material/Home';
+import GroupsIcon from '@mui/icons-material/Groups';
+import SchoolIcon from '@mui/icons-material/School';
 
 
 const EditableContext = React.createContext(null);
@@ -176,14 +180,47 @@ const UsersStudents = () => {
   return (
     <AppLayout>
       <div>
+        <div role="presentation" className='presentation'>
+          <Breadcrumbs aria-label="breadcrumb">
+            <Link
+              underline="hover"
+              sx={{ display: 'flex', alignItems: 'center' }}
+              color="inherit"
+              href="/"
+            >
+              <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" />
+              Главная
+            </Link>
+            <Link
+              underline="hover"
+              sx={{ display: 'flex', alignItems: 'center' }}
+              color="inherit"
+              href="/groups"
+            >
+              <GroupsIcon sx={{ mr: 0.5 }} fontSize="inherit" />
+              Группы
+            </Link>
+            <Link
+              underline="hover"
+              sx={{ display: 'flex', alignItems: 'center' }}
+              color="inherit"
+              href="/students"
+            >
+              <SchoolIcon sx={{ mr: 0.5 }} fontSize="inherit" />
+              Студенты
+            </Link>
+          </Breadcrumbs>
+        </div>
+        <h2>Студенты
+        </h2>
 
         <button onClick={handleAdd}
-        type="btn-outlook"
-        style={{
-          marginBottom: 16,
-        }}>
-        add a row
-      </button>
+          type="btn-outlook"
+          style={{
+            marginBottom: 16,
+          }}>
+          add a row
+        </button>
         <Table
           components={components}
           rowClassName={() => 'editable-row'}

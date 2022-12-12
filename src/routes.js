@@ -14,9 +14,10 @@ import Activity from "./common/Activity/Activity";
 import Groups from "./common/Users/Groups";
 import ForgetPassword from "./common/auth/components/ForgetPassword";
 import Tests from "./common/Assignment/Tests";
-import Schedule from "./common/SChedule/Schedule";
+import Schedule from "./common/Schedule/Schedule";
 import Courses from "./common/courses/Courses";
 import TestList from "./common/Assignment/components/TestList";
+import AddTests from "./common/Assignment/components/AddTests";
 // import { Redirect } from 
 
 const ContentRouter = createBrowserRouter([
@@ -73,6 +74,10 @@ const ContentRouter = createBrowserRouter([
   {
     path: "/test",
     element: <TestList/>
+  },
+  {
+    path: "/createtest",
+    element: <AddTests/>
   },
 ]
 );

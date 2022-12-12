@@ -388,7 +388,7 @@ a:hover{
 .newsAdd{
   display:flex;
   width: 100%;
-  gap:20px;
+  gap:8px;
   flex-direction: column;
 }
 .cardsWrapper{
@@ -423,9 +423,27 @@ a:hover{
 .required{
   display: flex !important;
   gap: 3px;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 .font15{
   padding: 0 !important;
   margin: 0 !important;
   font-size: 15px !important;
+}
+.linktext{
+  color:#00557c;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 10px 10px !important;
+  margin: 10px !important;
+  border: 2px solid #00557c;
+  border-radius: 5px;
+  float: right;
+}
+.presentation{
+  margin-bottom: 20px !important;
+}
+.btn{
+  margin: 5px;
 }

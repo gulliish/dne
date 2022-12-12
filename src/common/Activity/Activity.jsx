@@ -6,6 +6,10 @@ import AppLayout from '../layout/Layout';
 import { getMessageThunk, postMessageThunk } from './ActivitySlice';
 import AddActivity from './components/AddActivity';
 import Cards from './components/Cards';
+import Breadcrumbs from '@mui/material/Breadcrumbs';
+import Link from '@mui/material/Link';
+import HomeIcon from '@mui/icons-material/Home';
+import BookmarkAdd from '@mui/icons-material/Whatshot';
 
 
 
@@ -27,6 +31,29 @@ export default function Activity() {
   return (
     <AppLayout>
       <div>
+      <div role="presentation" className='presentation'>
+      <Breadcrumbs aria-label="breadcrumb">
+        <Link
+          underline="hover"
+          sx={{ display: 'flex', alignItems: 'center' }}
+          color="inherit"
+          href="/"
+        >
+          <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" />
+          Главная
+        </Link>
+        <Link
+          underline="hover"
+          sx={{ display: 'flex', alignItems: 'center' }}
+          color="inherit"
+          href="/notifications"
+        >
+          <BookmarkAdd sx={{ mr: 0.5 }} fontSize="inherit" />
+          Доска объявлений
+        </Link>
+      </Breadcrumbs>
+    </div>
+    
         <AddActivity />
         <div className='cardsWrapper'>
           {

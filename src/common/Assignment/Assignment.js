@@ -2,6 +2,10 @@ import React from 'react';
 import AppLayout from '../layout/Layout';
 import AddAssign from './components/AssignModal';
 import CardAssign from './components/CardAssign';
+import Breadcrumbs from '@mui/material/Breadcrumbs';
+import Link from '@mui/material/Link';
+import HomeIcon from '@mui/icons-material/Home';
+import BookmarkAdd from '@mui/icons-material/Whatshot';
 // import { authenticationService } from '@/_services';
 // import {  Redirect } from 'react-router-dom';
 
@@ -21,6 +25,28 @@ function Assignment() {
   return (
     <AppLayout>
     <div className="">
+    <div role="presentation" className='presentation'>
+      <Breadcrumbs aria-label="breadcrumb">
+        <Link
+          underline="hover"
+          sx={{ display: 'flex', alignItems: 'center' }}
+          color="inherit"
+          href="/"
+        >
+          <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" />
+          Главная
+        </Link>
+        <Link
+          underline="hover"
+          sx={{ display: 'flex', alignItems: 'center' }}
+          color="inherit"
+          href="/assignment"
+        >
+          <BookmarkAdd sx={{ mr: 0.5 }} fontSize="inherit" />
+          Задание
+        </Link>
+      </Breadcrumbs>
+    </div>
         
       <AddAssign/>
       <CardAssign/>

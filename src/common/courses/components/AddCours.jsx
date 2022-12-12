@@ -50,7 +50,7 @@ function AddModal(props) {
                         <select name="teachers" id="teachers" form="carform">
                             {
                                 courses.map(item => (
-                                    <option value="volvo">{item.teacher}</option>
+                                    <option classname='option'>{item.teacher}</option>
                                 ))
                             }
                         </select>
@@ -64,7 +64,7 @@ function AddModal(props) {
                         <select name="teachers" id="teachers" form="carform">
                             {
                                 courses.map(item => (
-                                    <option value="volvo">{item.groups}</option>
+                                    <option classname='option'>{item.groups}</option>
                                 ))
                             }
                         </select>

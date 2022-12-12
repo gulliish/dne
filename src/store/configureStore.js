@@ -9,6 +9,7 @@ import messageSlice from '../common/Activity/ActivitySlice'
 import coursesSlice from '../common/courses/CoursesSlice'
 import testSlice from '../common/Assignment/AssignSlice'
 import photoSlice from '../common/auth/LoginSlice'
+import sheduleSlice from '../common/Schedule/scheduleSlice'
 
 export const store = configureStore({
     reducer: {
@@ -19,7 +20,8 @@ export const store = configureStore({
         messageSlice,
         coursesSlice,
         testSlice,
-        photoSlice
+        photoSlice,
+        sheduleSlice
     }
 })
 
