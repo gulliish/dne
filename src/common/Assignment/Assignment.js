@@ -1,7 +1,6 @@
 import React from 'react';
 import AppLayout from '../layout/Layout';
-import AddAssign from './components/AssignModal';
-import CardAssign from './components/CardAssign';
+import TestsCard from './components/TestsCard';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Link from '@mui/material/Link';
 import HomeIcon from '@mui/icons-material/Home';
@@ -47,9 +46,10 @@ function Assignment() {
         </Link>
       </Breadcrumbs>
     </div>
-        
-      <AddAssign/>
-      <CardAssign/>
+    <Link 
+          href="/createtest"
+        >Create test</Link>
+    <TestsCard/>
     </div>
     </AppLayout>
   )

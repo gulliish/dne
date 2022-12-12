@@ -62,7 +62,7 @@ body{
 }
 
 .pro-sidebar-header {
-  height: 88px;
+  height: 96px;
   background-color: #001529;
   align-items: center;
   font-size: 30px;
@@ -446,4 +446,7 @@ a:hover{
 }
 .btn{
   margin: 5px;
+}
+.liked{
+  color: #dc3545 !important;
 }

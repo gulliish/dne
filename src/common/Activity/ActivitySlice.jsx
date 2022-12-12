@@ -24,7 +24,7 @@ export const postMessageThunk = createAsyncThunk(
 export const deleteMessageThunk = createAsyncThunk(
     'messages/deleteMessageThunk',
     async ({ id }, { dispatch }) => {
-        await axios.delete('http://127.0.0.1:8000/api/v1/news/', { id })
+        await axios.delete('http://127.0.0.1:8000/api/v1/board/messages/', { id })
         dispatch(getMessageThunk())
     }
 )

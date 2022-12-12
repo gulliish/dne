@@ -7,8 +7,7 @@ import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import { Paper } from '@mui/material';
+import Like from './Like';
 
 
 export default function Cards({ item }) {
@@ -32,9 +31,10 @@ export default function Cards({ item }) {
           </Typography>
         </CardContent>
         <CardActions disableSpacing>
-          <IconButton aria-label="add to favorites">
-            <FavoriteIcon title="like" />
-          </IconButton> {item.likes}
+          {
+              <Like item={item}/>
+          }
+
           <IconButton aria-label="add to favorites">
             <i className="bi bi-trash3-fill icon" title="Delete"></i>
           </IconButton>
